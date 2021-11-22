@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Date;
-
 public class Usuario {
     
     private int id;
@@ -9,23 +7,28 @@ public class Usuario {
     private String cpf;
     private String email;
     private String telefone;
-    private Date nascimento;
+    private String cargo;
 
-    public Usuario(int id, String nome, String cpf, String email, String telefone, Date nascimento) {
+    public Usuario(int id, String nome, String cpf, String email, String telefone, String cargo) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
-        this.nascimento = nascimento;
+        this.cargo = cargo;
     }
 
-    public Usuario(String nome, String cpf, String email, String telefone, Date nascimento) {
+    public Usuario(String nome, String cpf, String email, String telefone, String cargo) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
-        this.nascimento = nascimento;
+        this.cargo = cargo;
+    }
+
+    public Usuario(String cpf, String email) {
+        this.cpf = cpf;
+        this.email = email;
     }
 
     public int getId() {
@@ -68,13 +71,11 @@ public class Usuario {
         this.telefone = telefone;
     }
 
-    public Date getNascimento() {
-        return nascimento;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setNascimento(Date nascimento) {
-        this.nascimento = nascimento;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
-    
-    
 }
