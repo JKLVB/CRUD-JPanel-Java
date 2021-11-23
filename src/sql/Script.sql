@@ -39,8 +39,3 @@ ALTER TABLE cadastro.usuario
   OWNER TO postgres;
   
 GRANT ALL ON TABLE cadastro.usuario TO postgres;
-
-INSERT INTO cadastro.usuario (nome, cpf, email, telefone, cargo)
-VALUE ('Roberto', '33333333333', 'roberto.teste@hotmail.com', '71988142763', 'desenvolvedor');
-
-SELECT * FROM cadastro.usuario;
