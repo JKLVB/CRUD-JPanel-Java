@@ -3,8 +3,6 @@ package controller;
 import config.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Usuario;
 import model.UsuarioDAO;
@@ -19,23 +17,25 @@ public class ControllerCadastro {
     }
     
     public void salvar(){
-        
-        String nome = view.getjTextFieldNome().getText();
-        String cpf = view.getjTextFieldCPF().getText();
-        String email = view.getjTextFieldEmail().getText();
-        String telefone = view.getjTextFieldTelefone().getText();
-        String cargo = view.getBtnGroupCargo().getSelection().getActionCommand();
-        
-        Usuario objUsuario = new Usuario(nome, cpf, email, telefone, cargo);
-        
         try {
+            String nome = view.getjTextFieldNome().getText();
+            String cpf = view.getjTextFieldCPF().getText();
+            String email = view.getjTextFieldEmail().getText();
+            String telefone = view.getjTextFieldTelefone().getText();
+            String cargo = view.getBtnGroupCargo().getSelection().getActionCommand();
+
+            Usuario objUsuario = new Usuario(nome, cpf, email, telefone, cargo);
+
             Connection conexao = new Conexao().getConnection();
             UsuarioDAO objDao = new UsuarioDAO(conexao);
-            objDao.insert(objUsuario);
+            boolean result = objDao.insert(objUsuario);
+
+            JOptionPane.showMessageDialog(null, result ?
+                    "O CPF, Email ou Telefone já está sendo utilizado" :
+                    "Usuário cadastrado com sucesso!");
             
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
-        } catch (SQLException ex) {
-            Logger.getLogger(ViewCadastro.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 }

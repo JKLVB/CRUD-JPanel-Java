@@ -6,10 +6,13 @@ import java.sql.SQLException;
 
 public class Conexao {
     
+    private static String JDBC = "jdbc:postgresql://localhost:5432/projeto?currentSchema=cadastro";
+    
     public Connection getConnection() throws SQLException{
-        
-        Connection conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/projeto?currentSchema=cadastro", "postgres", "123456");
-        return conexao;
-        
+        try{
+            return DriverManager.getConnection(JDBC, "postgres", "123456");
+        }catch (SQLException ex){
+            throw new SQLException(ex.getMessage().toString());
+        }
     }
 }

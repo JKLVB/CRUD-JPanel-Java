@@ -25,23 +25,26 @@ public class ControllerLogin {
         this.view = view;
     }
 
-    public void autenticar() throws SQLException {
-        
-        String cpf = view.getjTextFieldCpf().getText();
-        String email = view.getjTextFieldEmail().getText();
-        
-        Usuario objUsuario = new Usuario("Jonas", cpf, email, "222", "designer");
-        
-        Connection conexao = new Conexao().getConnection();
-        UsuarioDAO objDao = new UsuarioDAO(conexao);
-        
-        boolean result = objDao.autenticar(objUsuario);
-        
-        if(result){
-            ViewMenu telaDeMenu = new ViewMenu();
-            telaDeMenu.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Email ou CPF inválido");
+    public void autenticar(){
+        try {
+            String cpf = view.getjTextFieldCpf().getText();
+            String email = view.getjTextFieldEmail().getText();
+
+            Usuario objUsuario = new Usuario(cpf, email);
+
+            Connection conexao = new Conexao().getConnection();
+            UsuarioDAO objDao = new UsuarioDAO(conexao);
+
+            objDao.autenticar(objUsuario);
+
+            if(objDao.autenticar(objUsuario)){
+                ViewMenu telaDeMenu = new ViewMenu();
+                telaDeMenu.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Email ou CPF inválido");
+            }
+        } catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 }
