@@ -29,7 +29,6 @@ CREATE TABLE cadastro.usuario
   cargo VARCHAR(30) NOT NULL,
   CONSTRAINT pk_usuario PRIMARY KEY (id),
   CONSTRAINT uk_usuario_cpf UNIQUE (cpf),
-  CONSTRAINT uk_usuario_email UNIQUE (email),
   CONSTRAINT uk_usuario_teleone UNIQUE (telefone)
 )
 WITH (
