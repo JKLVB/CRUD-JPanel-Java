@@ -8,6 +8,7 @@ import controller.ControllerMenu;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -25,12 +26,12 @@ public class ViewMenu extends javax.swing.JFrame {
     public ViewMenu() throws SQLException {
         initComponents();
         System.out.println("TESTE ALIPIOOO");
-        
+        controller = new ControllerMenu(this);
         
         
         DefaultTableModel modelo = (DefaultTableModel) jTableUsuarios.getModel();
         jTableUsuarios.setRowSorter(new TableRowSorter(modelo));
-        controller = new ControllerMenu(this);
+        
         System.out.println("TESTE ALIPIOOO2");
         controller.consultar();
     }
@@ -61,11 +62,11 @@ public class ViewMenu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "CPF", "Senha", "Telefone", "Cargo"
+                "ID", "Nome", "CPF", "Senha", "Telefone", "Cargo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -162,6 +163,14 @@ public class ViewMenu extends javax.swing.JFrame {
                 }
             }
         });
+    }
+
+    public JTable getjTableUsuarios() {
+        return jTableUsuarios;
+    }
+
+    public void setjTableUsuarios(JTable jTableUsuarios) {
+        this.jTableUsuarios = jTableUsuarios;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
