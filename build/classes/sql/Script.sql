@@ -24,7 +24,7 @@ CREATE TABLE cadastro.usuario
   id integer NOT NULL DEFAULT nextval('cadastro.sq_usuario'::regclass),
   nome VARCHAR(50) NOT NULL,
   cpf VARCHAR(11) NOT NULL,
-  email VARCHAR(50) NOT NULL,
+  senha VARCHAR(30) NOT NULL,
   telefone VARCHAR(11) NOT NULL,
   cargo VARCHAR(30) NOT NULL,
   CONSTRAINT pk_usuario PRIMARY KEY (id),
@@ -39,8 +39,3 @@ ALTER TABLE cadastro.usuario
   OWNER TO postgres;
   
 GRANT ALL ON TABLE cadastro.usuario TO postgres;
-
-INSERT INTO cadastro.usuario (nome, cpf, email, telefone, cargo)
-VALUE ('Roberto', '33333333333', 'roberto.teste@hotmail.com', '71988142763', 'desenvolvedor');
-
-SELECT * FROM cadastro.usuario;

@@ -8,6 +8,7 @@ import config.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import model.Usuario;
 import model.UsuarioDAO;
 import view.ViewLogin;
@@ -28,9 +29,9 @@ public class ControllerLogin {
     public void autenticar(){
         try {
             String cpf = view.getjTextFieldCpf().getText();
-            String email = view.getjTextFieldEmail().getText();
+            String senha = view.getjPasswordField().getText();
 
-            Usuario objUsuario = new Usuario(cpf, email);
+            Usuario objUsuario = new Usuario(cpf, senha);
 
             Connection conexao = new Conexao().getConnection();
             UsuarioDAO objDao = new UsuarioDAO(conexao);

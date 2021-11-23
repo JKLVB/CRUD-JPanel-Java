@@ -5,30 +5,30 @@ public class Usuario {
     private int id;
     private String nome;
     private String cpf;
-    private String email;
+    private String senha;
     private String telefone;
     private String cargo;
 
-    public Usuario(int id, String nome, String cpf, String email, String telefone, String cargo) {
+    public Usuario(int id, String nome, String cpf, String senha, String telefone, String cargo) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
+        this.senha = senha;
         this.telefone = telefone;
         this.cargo = cargo;
     }
 
-    public Usuario(String nome, String cpf, String email, String telefone, String cargo) {
+    public Usuario(String nome, String cpf, String senha, String telefone, String cargo) {
         this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
+        this.senha = senha;
         this.telefone = telefone;
         this.cargo = cargo;
     }
 
-    public Usuario(String cpf, String email) {
+    public Usuario(String cpf, String senha) {
         this.cpf = cpf;
-        this.email = email;
+        this.senha = senha;
     }
 
     public int getId() {
@@ -55,12 +55,12 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public String getEmail() {
-        return email;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getTelefone() {
@@ -77,5 +77,10 @@ public class Usuario {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+    
+    @Override
+    public String toString(){
+        return "Dados usuário : "+this.id+" --"+this.cargo+" --"+this.cpf+" --"+this.senha;
     }
 }

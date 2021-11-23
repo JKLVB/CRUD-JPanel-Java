@@ -7,8 +7,10 @@ package controller;
 import config.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Usuario;
 import model.UsuarioDAO;
 import view.ViewMenu;
 
@@ -26,11 +28,10 @@ public class ControllerMenu {
     
     public void consultar() throws SQLException{
         try{
+            System.out.println("TESTE ALIPIOOO3");
             Connection conexao = new Conexao().getConnection();
-            UsuarioDAO objDao = new UsuarioDAO(conexao);
-            
-            objDao.findAll();
-            
+            ArrayList<Usuario> usuarios = new UsuarioDAO(conexao).findAll();
+            System.out.println(usuarios.get(0).toString());
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

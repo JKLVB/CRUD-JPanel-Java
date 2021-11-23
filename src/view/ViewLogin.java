@@ -5,6 +5,7 @@
 package view;
 
 import controller.ControllerLogin;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -20,7 +21,6 @@ public class ViewLogin extends javax.swing.JFrame {
      */
     public ViewLogin() {
         initComponents();
-        
         controller = new ControllerLogin(this);
     }
 
@@ -34,8 +34,8 @@ public class ViewLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldEmail = new javax.swing.JTextField();
         jTextFieldCpf = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -48,21 +48,21 @@ public class ViewLogin extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("E-mail");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
-
-        jTextFieldEmail.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jTextFieldEmail.setForeground(new java.awt.Color(1, 1, 1));
-        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 200, -1));
+        jLabel1.setText("Senha");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         jTextFieldCpf.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jTextFieldCpf.setForeground(new java.awt.Color(1, 1, 1));
-        getContentPane().add(jTextFieldCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 200, -1));
+        getContentPane().add(jTextFieldCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 200, -1));
+
+        jPasswordField1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(1, 1, 1));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 200, -1));
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CPF");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jButton1.setForeground(new java.awt.Color(1, 1, 1));
@@ -96,7 +96,6 @@ public class ViewLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ViewCadastro telaDeCadastro = new ViewCadastro();
-        
         telaDeCadastro.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -144,12 +143,12 @@ public class ViewLogin extends javax.swing.JFrame {
         this.jTextFieldCpf = jTextFieldCpf;
     }
 
-    public JTextField getjTextFieldEmail() {
-        return jTextFieldEmail;
+    public JPasswordField getjPasswordField() {
+        return jPasswordField1;
     }
 
-    public void setjTextFieldEmail(JTextField jTextFieldEmail) {
-        this.jTextFieldEmail = jTextFieldEmail;
+    public void setjPasswordField(JPasswordField jPasswordField) {
+        this.jPasswordField1 = jPasswordField;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -158,7 +157,7 @@ public class ViewLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextFieldCpf;
-    private javax.swing.JTextField jTextFieldEmail;
     // End of variables declaration//GEN-END:variables
 }

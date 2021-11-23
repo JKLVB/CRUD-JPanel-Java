@@ -6,6 +6,7 @@ package view;
 
 import controller.ControllerCadastro;
 import javax.swing.ButtonGroup;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -40,12 +41,12 @@ public class ViewCadastro extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldCPF = new javax.swing.JTextField();
-        jTextFieldEmail = new javax.swing.JTextField();
         jTextFieldTelefone = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -69,7 +70,7 @@ public class ViewCadastro extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("E-mail");
+        jLabel3.setText("Senha");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -87,6 +88,7 @@ public class ViewCadastro extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("Formulário de Cadastro");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 200, -1));
 
         jRadioButton1.setBackground(new java.awt.Color(102, 102, 255));
         btnGroupCargo.add(jRadioButton1);
@@ -99,7 +101,7 @@ public class ViewCadastro extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, -1));
+        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
 
         jRadioButton2.setBackground(new java.awt.Color(102, 102, 255));
         btnGroupCargo.add(jRadioButton2);
@@ -107,15 +109,20 @@ public class ViewCadastro extends javax.swing.JFrame {
         jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Desenvolvedor");
         jRadioButton2.setActionCommand("desenvolvedor");
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, -1));
 
         jRadioButton3.setBackground(new java.awt.Color(102, 102, 255));
         btnGroupCargo.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Designer");
-        jRadioButton3.setActionCommand("designer");
-        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, -1, -1));
+        jRadioButton3.setText("Administrador");
+        jRadioButton3.setActionCommand("administrador");
+        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, -1, -1));
 
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +131,6 @@ public class ViewCadastro extends javax.swing.JFrame {
         });
         getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 200, -1));
         getContentPane().add(jTextFieldCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 200, -1));
-        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 200, -1));
         getContentPane().add(jTextFieldTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 200, -1));
 
         jButton1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -136,7 +142,7 @@ public class ViewCadastro extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 450, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/img/background-azul-claro.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 500));
@@ -155,6 +161,10 @@ public class ViewCadastro extends javax.swing.JFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,12 +218,12 @@ public class ViewCadastro extends javax.swing.JFrame {
         this.jTextFieldCPF = jTextFieldCPF;
     }
 
-    public JTextField getjTextFieldEmail() {
-        return jTextFieldEmail;
+    public JPasswordField getjPasswordField1() {
+        return jPasswordField1;
     }
 
-    public void setjTextFieldEmail(JTextField jTextFieldEmail) {
-        this.jTextFieldEmail = jTextFieldEmail;
+    public void setjPasswordField1(JPasswordField jPasswordField1) {
+        this.jPasswordField1 = jPasswordField1;
     }
 
     public JTextField getjTextFieldNome() {
@@ -244,11 +254,11 @@ public class ViewCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JTextField jTextFieldCPF;
-    private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldTelefone;
     // End of variables declaration//GEN-END:variables

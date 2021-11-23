@@ -24,7 +24,7 @@ CREATE TABLE cadastro.usuario
   id integer NOT NULL DEFAULT nextval('cadastro.sq_usuario'::regclass),
   nome VARCHAR(50) NOT NULL,
   cpf VARCHAR(11) NOT NULL,
-  email VARCHAR(50) NOT NULL,
+  senha VARCHAR(30) NOT NULL,
   telefone VARCHAR(11) NOT NULL,
   cargo VARCHAR(30) NOT NULL,
   CONSTRAINT pk_usuario PRIMARY KEY (id),

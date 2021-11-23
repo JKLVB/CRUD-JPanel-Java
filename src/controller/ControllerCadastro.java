@@ -20,11 +20,11 @@ public class ControllerCadastro {
         try {
             String nome = view.getjTextFieldNome().getText();
             String cpf = view.getjTextFieldCPF().getText();
-            String email = view.getjTextFieldEmail().getText();
+            String senha = view.getjPasswordField1().getText();
             String telefone = view.getjTextFieldTelefone().getText();
             String cargo = view.getBtnGroupCargo().getSelection().getActionCommand();
 
-            Usuario objUsuario = new Usuario(nome, cpf, email, telefone, cargo);
+            Usuario objUsuario = new Usuario(nome, cpf, senha, telefone, cargo);
 
             Connection conexao = new Conexao().getConnection();
             UsuarioDAO objDao = new UsuarioDAO(conexao);
