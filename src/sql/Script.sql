@@ -27,6 +27,7 @@ CREATE TABLE cadastro.usuario
   senha VARCHAR(30) NOT NULL,
   telefone VARCHAR(11) NOT NULL,
   cargo VARCHAR(30) NOT NULL,
+  sexo VARCHAR(10) NOT NULL,
   CONSTRAINT pk_usuario PRIMARY KEY (id),
   CONSTRAINT uk_usuario_cpf UNIQUE (cpf),
   CONSTRAINT uk_usuario_teleone UNIQUE (telefone)
@@ -38,3 +39,5 @@ ALTER TABLE cadastro.usuario
   OWNER TO postgres;
   
 GRANT ALL ON TABLE cadastro.usuario TO postgres;
+
+INSERT INTO cadastro.usuario (nome, cpf, senha, telefone, cargo, sexo) VALUES ('Pablo', '12345678900', '4321', '71987654321', 'administrador', 'masculino');
