@@ -21,7 +21,8 @@ import view.ViewMenu;
 public class ControllerMenu {
     
     private ViewMenu view;
-
+    public  ArrayList<Usuario> lista;
+    
     public ControllerMenu(ViewMenu view) {
         this.view = view;
     }
@@ -32,6 +33,7 @@ public class ControllerMenu {
             Connection conexao = new Conexao().getConnection();
             ArrayList<Usuario> usuarios = new UsuarioDAO(conexao).findAll();
             System.out.println(usuarios.get(0).toString());
+            this.lista = usuarios;
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

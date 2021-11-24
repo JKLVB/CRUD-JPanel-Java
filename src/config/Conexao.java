@@ -10,7 +10,7 @@ public class Conexao {
     
     public Connection getConnection() throws SQLException{
         try{
-            return DriverManager.getConnection(JDBC, "postgres", "123456");
+            return DriverManager.getConnection(JDBC, "postgres", "postgres");
         }catch (SQLException ex){
             throw new SQLException(ex.getMessage().toString());
         }

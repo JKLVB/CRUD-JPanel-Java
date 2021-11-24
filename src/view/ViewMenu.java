@@ -6,11 +6,14 @@ package view;
 
 import controller.ControllerMenu;
 import java.sql.SQLException;
+import model.Usuario;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+
 
 /**
  *
@@ -28,12 +31,26 @@ public class ViewMenu extends javax.swing.JFrame {
         System.out.println("TESTE ALIPIOOO");
         controller = new ControllerMenu(this);
         
+        DefaultTableModel modeloTabela = (DefaultTableModel) jTableUsuarios.getModel();
+        modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
+//        jTableUsuarios.setValueAt()
         
-        DefaultTableModel modelo = (DefaultTableModel) jTableUsuarios.getModel();
-        jTableUsuarios.setRowSorter(new TableRowSorter(modelo));
-        
+//        DefaultTableModel modelo = (DefaultTableModel) jTableUsuarios.getModel();
+//        jTableUsuarios.setRowSorter(new TableRowSorter(modelo));
+//        
         System.out.println("TESTE ALIPIOOO2");
-        controller.consultar();
+         controller.consultar();
+         for(Usuario user: controller.lista) {
+            modeloTabela.addRow(new Object[] {
+                    user.getId(),
+                    user.getNome(),
+                    user.getCpf(),
+                    user.getTelefone(),
+                    user.getCargo(),
+                    user.getSexo()
+            });
+        }
+          System.out.println(controller.lista);
     }
 
     /**
@@ -62,7 +79,7 @@ public class ViewMenu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "Senha", "Telefone", "Cargo"
+                "ID", "Nome", "CPF", "Telefone", "Cargo", "Sexo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -104,7 +121,6 @@ public class ViewMenu extends javax.swing.JFrame {
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 140, -1));
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Gerenciador de Usuários");
         jLabel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

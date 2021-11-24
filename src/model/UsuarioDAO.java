@@ -18,20 +18,21 @@ public class UsuarioDAO {
         if(this.autenticarInsert(usuario)){
             return true;
         }
-        String sqlInsert = "insert into usuario (nome, cpf, senha, telefone, cargo) values (?, ?, ?, ?, ?)";
+        String sqlInsert = "insert into usuario (nome, cpf, senha, telefone, cargo, sexo) values (?, ?, ?, ?, ?, ?)";
         PreparedStatement statementInsert = connection.prepareStatement(sqlInsert);
         statementInsert.setString(1, usuario.getNome());
         statementInsert.setString(2, usuario.getCpf());
         statementInsert.setString(3, usuario.getSenha());
         statementInsert.setString(4, usuario.getTelefone());
         statementInsert.setString(5, usuario.getCargo());
+        statementInsert.setString(6, usuario.getSexo());
         statementInsert.execute();
         return false;
     }
     
     public void update(Usuario usuario) throws SQLException{
         
-        String sql = "update usuario set nome = ?, cpf = ?, senha = ?, telefone = ?, cargo = ? where id = ?";
+        String sql = "update usuario set nome = ?, cpf = ?, senha = ?, telefone = ?, cargo = ?, sexo = ? where id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         
         statement.setString(1, usuario.getNome());
@@ -39,7 +40,8 @@ public class UsuarioDAO {
         statement.setString(3, usuario.getSenha());
         statement.setString(4, usuario.getTelefone());
         statement.setString(5, usuario.getCargo());
-        statement.setInt(6, usuario.getId());
+        statement.setString(6, usuario.getSexo());
+        statement.setInt(7, usuario.getId());
         statement.execute();
     }
     
@@ -69,7 +71,8 @@ public class UsuarioDAO {
             String senha = resultSet.getString("senha");
             String telefone = resultSet.getString("telefone");
             String cargo = resultSet.getString("cargo");
-            usuarios.add(new Usuario(id, nome, cpf, senha, telefone, cargo));
+            String sexo = resultSet.getString("sexo");
+            usuarios.add(new Usuario(id, nome, cpf, senha, telefone, cargo, sexo));
         }
         return usuarios;
     }

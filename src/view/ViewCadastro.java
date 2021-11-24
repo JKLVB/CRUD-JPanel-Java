@@ -35,12 +35,16 @@ public class ViewCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGroupCargo = new javax.swing.ButtonGroup();
+        btnGroupSexo = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -81,13 +85,33 @@ public class ViewCadastro extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Cargo");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, -1, -1));
+        jLabel5.setText("Sexo");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(254, 254, 254));
         jLabel7.setText("Formulário de Cadastro");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Cargo");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, -1, -1));
+
+        jRadioButton4.setBackground(new java.awt.Color(102, 102, 255));
+        btnGroupSexo.add(jRadioButton4);
+        jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton4.setText("Masculino");
+        jRadioButton4.setActionCommand("masculino");
+        getContentPane().add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
+
+        jRadioButton5.setBackground(new java.awt.Color(102, 102, 255));
+        btnGroupSexo.add(jRadioButton5);
+        jRadioButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton5.setText("feminino");
+        getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 200, -1));
 
         jRadioButton1.setBackground(new java.awt.Color(102, 102, 255));
@@ -209,6 +233,14 @@ public class ViewCadastro extends javax.swing.JFrame {
     public void setBtnGroupCargo(ButtonGroup btnGroupCargo) {
         this.btnGroupCargo = btnGroupCargo;
     }
+    
+    public ButtonGroup getBtnGroupSexo() {
+        return btnGroupSexo;
+    }
+
+    public void setBtnGroupSexo(ButtonGroup btnGroupSexo) {
+        this.btnGroupSexo = btnGroupSexo;
+    }
 
     public JTextField getjTextFieldCPF() {
         return jTextFieldCPF;
@@ -246,6 +278,7 @@ public class ViewCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btnGroupCargo;
+    private javax.swing.ButtonGroup btnGroupSexo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -254,10 +287,13 @@ public class ViewCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JTextField jTextFieldCPF;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldTelefone;
