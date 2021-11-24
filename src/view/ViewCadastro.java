@@ -110,7 +110,9 @@ public class ViewCadastro extends javax.swing.JFrame {
         btnGroupSexo.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton5.setText("feminino");
+        jRadioButton5.setText("Feminino");
+        jRadioButton5.setToolTipText("");
+        jRadioButton5.setActionCommand("feminino");
         getContentPane().add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 200, -1));
 
