@@ -1,7 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+/**
+ * 
+ * Unime - União Metropolitana de Educação e Cultura Curso: Bacharelado em
+ * Sistemas de Informação Disciplina: Programação Orientada a Objetos II
+ * Professor(a): Pablo Ricardo Roxo Silva 
+ * Aluno(a): Alvaro Lima & Gutemberg Mauricio
+ *
  */
+
+
 package view;
 
 import controller.ControllerLogin;
