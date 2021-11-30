@@ -1,7 +1,6 @@
 package controller;
 
 import config.Conexao;
-import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import model.Usuario;
@@ -25,19 +24,15 @@ public class ControllerCadastro {
             String cargo = view.getBtnGroupCargo().getSelection().getActionCommand();
             String sexo = view.getBtnGroupSexo().getSelection().getActionCommand();
             
-            
-                Usuario objUsuario = new Usuario(nome, cpf, senha, telefone, cargo, sexo);
-                Connection conexao = new Conexao().getConnection();
-                UsuarioDAO objDao = new UsuarioDAO(conexao);
-                boolean result = objDao.insert(objUsuario);
+            Usuario objUsuario = new Usuario(nome, cpf, senha, telefone, cargo, sexo);
+            UsuarioDAO objDao = new UsuarioDAO(new Conexao().getConnection());
+            boolean result = objDao.insert(objUsuario);
+            String msg = result ? "O CPF, Email ou Telefone já está sendo utilizado" : "Usuário cadastrado com sucesso!";
+            JOptionPane.showMessageDialog(null, msg);
 
-                JOptionPane.showMessageDialog(null, result ?
-                        "O CPF, Email ou Telefone já está sendo utilizado" :
-                        "Usuário cadastrado com sucesso!");
-
-                if(!result){
-                    this.view.dispose();
-                }
+            if(!result){
+                this.view.dispose();
+            }
             
           } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());

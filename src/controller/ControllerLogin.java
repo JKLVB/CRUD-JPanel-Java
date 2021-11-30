@@ -1,23 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 import config.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
 import model.Usuario;
 import model.UsuarioDAO;
 import view.ViewLogin;
 import view.ViewMenu;
 
-/**
- *
- * @author Alvaro
- */
 public class ControllerLogin {
     
     private ViewLogin view;
@@ -32,8 +23,7 @@ public class ControllerLogin {
             String senha = view.getjPasswordField().getText();
             Usuario objUsuario = new Usuario(cpf, senha);
 
-            Connection conexao = new Conexao().getConnection();
-            UsuarioDAO objDao = new UsuarioDAO(conexao);
+            UsuarioDAO objDao = new UsuarioDAO(new Conexao().getConnection());
 
             objDao.autenticar(objUsuario);
 

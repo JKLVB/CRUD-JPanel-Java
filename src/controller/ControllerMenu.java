@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 import config.Conexao;
@@ -14,10 +10,6 @@ import model.Usuario;
 import model.UsuarioDAO;
 import view.ViewMenu;
 
-/**
- *
- * @author alvarolima
- */
 public class ControllerMenu {
     
     private ViewMenu view;
@@ -29,9 +21,7 @@ public class ControllerMenu {
     
     public void consultar() throws SQLException{
         try{
-         
-            Connection conexao = new Conexao().getConnection();
-            ArrayList<Usuario> usuarios = new UsuarioDAO(conexao).findAll();
+            ArrayList<Usuario> usuarios = new UsuarioDAO(new Conexao().getConnection()).findAll();
             this.lista = usuarios;
         } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -39,31 +29,26 @@ public class ControllerMenu {
     }
      
     public void atualizarLista() throws SQLException {
-        DefaultTableModel modeloTabela =  (DefaultTableModel) view.getjTableUsuarios().getModel();
+        DefaultTableModel modeloTabela = (DefaultTableModel) view.getjTableUsuarios().getModel();
         modeloTabela.addRow(new String[modeloTabela.getColumnCount()]);
-         consultar();
-         modeloTabela.setRowCount(0);
-         for(Usuario user: lista) {
-            if(user.getId() != 0){
-                
-            
-            modeloTabela.addRow(new Object[] {
+        consultar();
+        modeloTabela.setRowCount(0);
+        for(Usuario user: lista) {
+           if(user.getId() != 0){
+                modeloTabela.addRow(new Object[] {
                     user.getId(),
                     user.getNome(),
                     user.getCpf(),
                     user.getTelefone(),
                     user.getCargo(),
                     user.getSexo()
-            });
-            }
+                });
+           }
         }
     }
     
     public void deletar() throws SQLException{
         if(view.getjTableUsuarios().getSelectedRow()>= 0){
-
-            
-            
             int[] rows = view.getjTableUsuarios().getSelectedRows();
             ArrayList<Integer> listaID = new ArrayList();
             for(int i:rows){
@@ -72,10 +57,10 @@ public class ControllerMenu {
             Connection conexao = new Conexao().getConnection();
             UsuarioDAO usuario = new UsuarioDAO(conexao);
             
-           usuario.delete(listaID);
+            usuario.delete(listaID);
             atualizarLista();
         } else {
             JOptionPane.showMessageDialog(null, "Selecione O campo para exclusão");
         }
-  }   
+    }   
 }

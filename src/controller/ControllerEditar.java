@@ -19,41 +19,33 @@ public class ControllerEditar {
     private Usuario usuario;
     public ControllerEditar(ViewEditar view, Integer id) {
         try{
-        this.view = view;
-        Connection conexao = new Conexao().getConnection();
-        this.usuario = new UsuarioDAO(conexao).findByid(id);
-        
-        view.getjTextFieldNome().setText(usuario.getNome());
-        view.getjTextFieldCPF().setText(usuario.getCpf());
-        view.getjPasswordField1().setText(usuario.getSenha());
-        view.getjTextFieldTelefone().setText(usuario.getTelefone());
-           
-        List<AbstractButton> listRadioButton = Collections.list(view.getBtnGroupCargo().getElements());
-        
-        for (AbstractButton button : listRadioButton) {
+            this.view = view;
+            this.usuario = new UsuarioDAO(new Conexao().getConnection()).findByid(id);
 
-            if(((JRadioButton) button).getActionCommand().equals(usuario.getCargo())){
+            view.getjTextFieldNome().setText(usuario.getNome());
+            view.getjTextFieldCPF().setText(usuario.getCpf());
+            view.getjPasswordField1().setText(usuario.getSenha());
+            view.getjTextFieldTelefone().setText(usuario.getTelefone());
 
-                button.setSelected(true);
+            List<AbstractButton> listRadioButton = Collections.list(view.getBtnGroupCargo().getElements());
+
+            for (AbstractButton button : listRadioButton) {
+                if(((JRadioButton) button).getActionCommand().equals(usuario.getCargo())){
+                    button.setSelected(true);
+                }
             }
-
-        }
-        
-        List<AbstractButton> listRadioButton2 = Collections.list(view.getBtnGroupSexo().getElements());
-        
-        for (AbstractButton button : listRadioButton2) {
-
-            if(((JRadioButton) button).getActionCommand().equals(usuario.getSexo())){
-
-                button.setSelected(true);
+            
+            List<AbstractButton> listRadioButton2 = Collections.list(view.getBtnGroupSexo().getElements());
+            
+            for (AbstractButton button : listRadioButton2) {
+                if(((JRadioButton) button).getActionCommand().equals(usuario.getSexo())){
+                    button.setSelected(true);
+                }
             }
-
+        } catch (SQLException e){
+             System.out.println(e.getMessage());
         }
-        
-      } catch (SQLException e){
-           System.out.println(e.getMessage());
-      }
-  }
+    }
     
     public void editar(){
         try {
@@ -77,9 +69,7 @@ public class ControllerEditar {
           
            if(result){
                 this.view.dispose();
-            }
-            
-                        
+            }           
           } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
       }

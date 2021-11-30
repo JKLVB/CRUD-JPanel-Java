@@ -35,8 +35,6 @@ public class UsuarioDAO {
         String sql = "update usuario set nome = ?, cpf = ?, senha = ?, telefone = ?, cargo = ?, sexo = ? where id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         
-            
-        
         statement.setString(1, usuario.getNome());
         statement.setString(2, usuario.getCpf());
         statement.setString(3, usuario.getSenha());
@@ -46,13 +44,7 @@ public class UsuarioDAO {
         statement.setInt(7, usuario.getId());     
         int update = statement.executeUpdate();
         
-        if(update < 1){
-            return false;
-        } else {
-            return true;
-        }
-        
-        
+        return update < 1 ? false : true;
     }
     
     public void delete(ArrayList<Integer> listaID) throws SQLException{
@@ -102,11 +94,13 @@ public class UsuarioDAO {
         statement.setInt(1, id);
         ResultSet result = statement.executeQuery();
         if(result.next()){
-            return new Usuario(result.getInt("id"),result.getString("nome"),result.getString("cpf"),result.getString("senha"), result.getString("telefone"), result.getString("cargo"), result.getString("sexo"));
+            return new Usuario(result.getInt("id"),result.getString("nome"),
+                    result.getString("cpf"),result.getString("senha"),
+                    result.getString("telefone"), result.getString("cargo"),
+                    result.getString("sexo"));
         } else {
             return null;
         }
-        
     }
 
     public boolean autenticar(Usuario usuario) throws SQLException {
@@ -127,6 +121,4 @@ public class UsuarioDAO {
         statement.execute();
         return statement.getResultSet().next();
     }
-
-   
 }
