@@ -30,7 +30,6 @@ public class ControllerLogin {
         try {
             String cpf = view.getjTextFieldCpf().getText();
             String senha = view.getjPasswordField().getText();
-
             Usuario objUsuario = new Usuario(cpf, senha);
 
             Connection conexao = new Conexao().getConnection();

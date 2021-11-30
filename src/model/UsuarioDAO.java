@@ -30,10 +30,12 @@ public class UsuarioDAO {
         return false;
     }
     
-    public void update(Usuario usuario) throws SQLException{
+    public boolean update(Usuario usuario) throws SQLException{
         
         String sql = "update usuario set nome = ?, cpf = ?, senha = ?, telefone = ?, cargo = ?, sexo = ? where id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
+        
+            
         
         statement.setString(1, usuario.getNome());
         statement.setString(2, usuario.getCpf());
@@ -41,21 +43,31 @@ public class UsuarioDAO {
         statement.setString(4, usuario.getTelefone());
         statement.setString(5, usuario.getCargo());
         statement.setString(6, usuario.getSexo());
-        statement.setInt(7, usuario.getId());
-        statement.execute();
+        statement.setInt(7, usuario.getId());     
+        int update = statement.executeUpdate();
+        
+        if(update < 1){
+            return false;
+        } else {
+            return true;
+        }
+        
+        
     }
     
-    public void delete(Usuario usuario) throws SQLException{
-        
+    public void delete(ArrayList<Integer> listaID) throws SQLException{
+        for(Integer id: listaID){
+            
         String sql = "delete from usuario where id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         
-        statement.setInt(1, usuario.getId());
+        statement.setInt(1,id);
         statement.execute();
+        }
     }
     
     public ArrayList<Usuario> findAll() throws SQLException{
-        String sql = "select * from usuario";
+        String sql = "select * from usuario order by id";
         PreparedStatement statement = connection.prepareStatement(sql);
         return pesquisa(statement);
     }
@@ -83,6 +95,19 @@ public class UsuarioDAO {
         statement.setString(1, usuario.getNome());
         return pesquisa(statement);
     }
+    
+     public Usuario findByid(Integer id) throws SQLException{
+        String sql = "select * from usuario where id = ?";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setInt(1, id);
+        ResultSet result = statement.executeQuery();
+        if(result.next()){
+            return new Usuario(result.getInt("id"),result.getString("nome"),result.getString("cpf"),result.getString("senha"), result.getString("telefone"), result.getString("cargo"), result.getString("sexo"));
+        } else {
+            return null;
+        }
+        
+    }
 
     public boolean autenticar(Usuario usuario) throws SQLException {
         String sql = "select * from usuario where cpf = ? and senha = ? and cargo = 'administrador'";
@@ -102,4 +127,6 @@ public class UsuarioDAO {
         statement.execute();
         return statement.getResultSet().next();
     }
+
+   
 }
