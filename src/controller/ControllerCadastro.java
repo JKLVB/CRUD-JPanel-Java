@@ -23,19 +23,25 @@ public class ControllerCadastro {
             String senha = view.getjPasswordField1().getText();
             String telefone = view.getjTextFieldTelefone().getText();
             String cargo = view.getBtnGroupCargo().getSelection().getActionCommand();
-
-            Usuario objUsuario = new Usuario(nome, cpf, senha, telefone, cargo);
-
-            Connection conexao = new Conexao().getConnection();
-            UsuarioDAO objDao = new UsuarioDAO(conexao);
-            boolean result = objDao.insert(objUsuario);
-
-            JOptionPane.showMessageDialog(null, result ?
-                    "O CPF, Email ou Telefone já está sendo utilizado" :
-                    "Usuário cadastrado com sucesso!");
+            String sexo = view.getBtnGroupSexo().getSelection().getActionCommand();
             
-        } catch(SQLException e){
+            
+                Usuario objUsuario = new Usuario(nome, cpf, senha, telefone, cargo, sexo);
+                Connection conexao = new Conexao().getConnection();
+                UsuarioDAO objDao = new UsuarioDAO(conexao);
+                boolean result = objDao.insert(objUsuario);
+
+                JOptionPane.showMessageDialog(null, result ?
+                        "O CPF, Email ou Telefone já está sendo utilizado" :
+                        "Usuário cadastrado com sucesso!");
+
+                if(!result){
+                    this.view.dispose();
+                }
+            
+          } catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+      }
     }
+    
 }

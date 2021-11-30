@@ -8,22 +8,25 @@ public class Usuario {
     private String senha;
     private String telefone;
     private String cargo;
+    private String sexo;
 
-    public Usuario(int id, String nome, String cpf, String senha, String telefone, String cargo) {
+    public Usuario(int id, String nome, String cpf, String senha, String telefone, String cargo, String sexo) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
         this.telefone = telefone;
         this.cargo = cargo;
+        this.sexo = sexo;
     }
 
-    public Usuario(String nome, String cpf, String senha, String telefone, String cargo) {
+    public Usuario(String nome, String cpf, String senha, String telefone, String cargo, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
         this.telefone = telefone;
         this.cargo = cargo;
+        this.sexo = sexo;
     }
 
     public Usuario(String cpf, String senha) {
@@ -77,6 +80,14 @@ public class Usuario {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
+    }
+    
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String cargo) {
+        this.sexo = sexo;
     }
     
     @Override
