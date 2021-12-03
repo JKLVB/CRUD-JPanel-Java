@@ -113,11 +113,10 @@ public class UsuarioDAO {
     }
     
     public boolean autenticarInsert(Usuario usuario) throws SQLException {
-        String sql = "select * from usuario where cpf = ? or senha = ? or telefone = ?";
+        String sql = "select * from usuario where cpf = ? or telefone = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setString(1, usuario.getCpf());
-        statement.setString(2, usuario.getSenha());
-        statement.setString(3, usuario.getTelefone());
+        statement.setString(2, usuario.getTelefone());
         statement.execute();
         return statement.getResultSet().next();
     }

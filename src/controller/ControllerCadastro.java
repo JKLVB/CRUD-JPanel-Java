@@ -27,7 +27,7 @@ public class ControllerCadastro {
             Usuario objUsuario = new Usuario(nome, cpf, senha, telefone, cargo, sexo);
             UsuarioDAO objDao = new UsuarioDAO(new Conexao().getConnection());
             boolean result = objDao.insert(objUsuario);
-            String msg = result ? "O CPF, Email ou Telefone já está sendo utilizado" : "Usuário cadastrado com sucesso!";
+            String msg = result ? "CPF ou Telefone já está sendo utilizado" : "Usuário cadastrado com sucesso!";
             JOptionPane.showMessageDialog(null, msg);
 
             if(!result){

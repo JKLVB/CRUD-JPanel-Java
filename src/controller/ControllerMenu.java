@@ -60,7 +60,7 @@ public class ControllerMenu {
             usuario.delete(listaID);
             atualizarLista();
         } else {
-            JOptionPane.showMessageDialog(null, "Selecione O campo para exclusão");
+            JOptionPane.showMessageDialog(null, "Selecione o campo para exclusão");
         }
     }   
 }

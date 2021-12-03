@@ -17,6 +17,7 @@ public class ControllerEditar {
     
     private ViewEditar view;
     private Usuario usuario;
+    
     public ControllerEditar(ViewEditar view, Integer id) {
         try{
             this.view = view;
@@ -49,7 +50,6 @@ public class ControllerEditar {
     
     public void editar(){
         try {
-            
             Integer id = usuario.getId();
             String nome = view.getjTextFieldNome().getText();
             String cpf = view.getjTextFieldCPF().getText();
@@ -65,7 +65,7 @@ public class ControllerEditar {
             
             JOptionPane.showMessageDialog(null, result ?
                     "Usuário editado com sucesso!":
-                    "O CPF, Email ou Telefone já está sendo utilizado");
+                    "O CPF ou Telefone já está sendo utilizado");
           
            if(result){
                 this.view.dispose();
